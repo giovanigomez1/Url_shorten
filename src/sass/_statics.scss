@@ -1,0 +1,138 @@
+.statics {
+  background-color: var(--backgroun-main);
+  margin-top: -2rem;
+  padding: 10rem;
+  @media only screen and (max-width: $bp-medium){
+    padding: 4rem;
+  }
+  &__title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 7rem;
+    @media only screen and (max-width: $bp-small){
+      gap: 1rem;
+    }
+    & h2 {
+      font-size: 3.5rem;
+      color: var(--dark-violet);
+      @media only screen and (max-width: $bp-small){
+        text-align: center;
+        font-size: 2.6rem;
+      }
+    }
+    & p {
+      font-size: 1.6rem;
+      text-align: center;
+      color: var(--grayish-violet);
+      @media only screen and (max-width: $bp-small){
+        font-size: 1.4rem;
+      }
+      & span {
+        display: block;
+        @media only screen and (max-width: $bp-small){
+          display: inline;
+        }
+      }
+    }
+  }
+  &__graphics {
+    display: flex;
+    gap: 2rem;
+    height: 38rem;
+    align-items: center;
+    position: relative;
+    @media only screen and (max-width: $bp-medium){
+      flex-direction: column;
+      height: auto;
+      gap: 7rem;
+    }
+    .izq {
+      align-self: baseline;
+      @media only screen and (max-width: $bp-medium){
+        align-self: center;
+      }
+    }
+    .der {
+      align-self: flex-end;
+      @media only screen and (max-width: $bp-medium){
+        align-self: center;
+      }
+    }
+    &--ele {
+      border-radius: 1rem;
+      width: 33%;
+      height: 26.7rem;
+      background-color: #fff;
+      position: relative;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      justify-content: center;
+      z-index: 20;
+      @media only screen and (max-width: $bp-medium){
+        width: 100%;
+      }
+     
+      .ele__icon {
+        position: relative;
+        width: 8rem;
+        height: 8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: var(--dark-violet);
+        position: absolute;
+        transform: translateY(-50%);
+        @media only screen and (max-width: $bp-medium){
+          transform: translate(-50%, -50%);
+          left: 50%;
+        }
+        top: 0;
+        & img {
+          display: block;
+        }
+      }
+      .ele__text {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 4rem;
+        @media only screen and (max-width: $bp-medium){
+          align-items: center;
+        }
+        & h3 {
+          font-size: 2rem;
+          color: var(--dark-violet);
+        }
+        & p {
+          font-size: 1.6rem;
+          color: var(--grayish-violet);
+          line-height: 2;
+          @media only screen and (max-width: $bp-medium){
+            text-align: center;
+          }
+        }
+      }
+
+    }
+  }
+  &__graphics::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    background-color: var(--grayish-violet);
+    height: 1.5rem;
+    z-index: 1; 
+    @media only screen and (max-width: $bp-medium){
+      transform: rotate(90deg);
+    }
+    @media only screen and (max-width: $bp-small){
+      width: 150%;
+    }
+  }
+}
