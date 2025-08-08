@@ -13,7 +13,7 @@ function Statics() {
         <h2>Advanced Statics</h2>
         <p>Track how your links are performing across the web <span>with our advanced statics dashboard.</span></p>
       </div>
-      <div className="statics__graphics container">
+      <div className="statics__graphics ">
         <div className="statics__graphics--ele izq">
           <div className="ele__icon"><img src={brand} alt="" /></div>  
           <div className="ele__text">
