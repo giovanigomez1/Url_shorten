@@ -2,8 +2,11 @@ import express from 'express';
 import cors from 'cors';
 import fetch from 'node-fetch'; // For Node.js <18; in Node 18+, you can use native fetch
 
+
+
+
 const app = express();
-const PORT = 3001;
+// const PORT = 3001;
 
 app.use(cors());
 app.use(express.json());
@@ -11,13 +14,11 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.json({
     'Greetings':'hello'
   })
 })
-
-
 
 
 app.post('/api/shorten', async (req, res) => {
@@ -46,17 +47,10 @@ app.post('/api/shorten', async (req, res) => {
 });
 
 
+// app.listen(PORT, () => {
+//   console.log(`Proxy server running on http://localhost:${PORT}`);
+// });
 
-
-
-
-
-
-
-
-
-app.listen(PORT, () => {
-  console.log(`Proxy server running on http://localhost:${PORT}`);
-});
+export default app
 
 
