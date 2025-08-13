@@ -24,9 +24,7 @@ app.post('/shorten', async (req, res) => {
   try {
     const response = await fetch('https://cleanuri.com/api/v1/shorten', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams({ url: longURL }),
     });
 
@@ -38,4 +36,6 @@ app.post('/shorten', async (req, res) => {
   }
 });
 
-export default serverless(app);
+// ✅ export as a function for Vercel
+const handler = serverless(app);
+export default handler;
