@@ -4,7 +4,7 @@ import cors from 'cors';
 import fetch from 'node-fetch'; // For Node.js <18; in Node 18+, you can use native fetch
 
 const app = express();
-// const PORT = 3001;
+
 
 app.use(cors());
 app.use(express.json());
@@ -12,14 +12,14 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-app.get('/api', (req, res) => {
+app.get('/', (req, res) => {
   res.json({
     'Greetings':'hello'
   })
 })
 
 
-app.post('/api/shorten', async (req, res) => {
+app.post('/shorten', async (req, res) => {
   const longURL = req.body.url;
   console.log(longURL)
 
