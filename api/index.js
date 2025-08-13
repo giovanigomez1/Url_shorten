@@ -1,27 +1,21 @@
 import serverless from 'serverless-http';
 import express from 'express';
 import cors from 'cors';
-import fetch from 'node-fetch'; // For Node.js <18; in Node 18+, you can use native fetch
+import fetch from 'node-fetch';
 
 const app = express();
-
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
-
 app.get('/', (req, res) => {
-  res.json({
-    'Greetings':'hello'
-  })
-})
-
+  res.json({ Greetings: 'hello' });
+});
 
 app.post('/shorten', async (req, res) => {
   const longURL = req.body.url;
-  console.log(longURL)
+  console.log(longURL);
 
   if (!longURL) {
     return res.status(400).json({ error: 'Missing URL' });
@@ -33,7 +27,7 @@ app.post('/shorten', async (req, res) => {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: new URLSearchParams({ url: longURL })
+      body: new URLSearchParams({ url: longURL }),
     });
 
     const data = await response.json();
@@ -44,7 +38,4 @@ app.post('/shorten', async (req, res) => {
   }
 });
 
-
-export default serverless(app)
-
-
+export default serverless(app);
