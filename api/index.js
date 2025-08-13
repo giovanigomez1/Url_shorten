@@ -1,7 +1,7 @@
 import serverless from 'serverless-http';
 import express from 'express';
 import cors from 'cors';
-import fetch from 'node-fetch';
+import fetch from 'node-fetch'; // If Node >= 18, you can use global fetch
 
 const app = express();
 
@@ -9,14 +9,14 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Root API test route
 app.get('/', (req, res) => {
   res.json({ Greetings: 'hello' });
 });
 
+// Example POST route
 app.post('/shorten', async (req, res) => {
   const longURL = req.body.url;
-  console.log(longURL);
-
   if (!longURL) {
     return res.status(400).json({ error: 'Missing URL' });
   }
@@ -36,6 +36,5 @@ app.post('/shorten', async (req, res) => {
   }
 });
 
-// ✅ export as a function for Vercel
-const handler = serverless(app);
-export default handler;
+// Export serverless handler for Vercel
+export default serverless(app);
